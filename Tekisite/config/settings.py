@@ -39,7 +39,15 @@ AUTH_APPS = (
 MAIN_APP = ()
 API_APPS = ()
 
-INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APP + MAIN_APP + API_APPS + AUTH_APPS
+TEKIROOM_APPS = (
+    'tekiroom.api.v0.achievement',
+    'tekiroom.api.v0.classroom',
+    'tekiroom.api.v0.courses',
+    'tekiroom.api.v0.homework',
+    'tekiroom.api.v0.tekiroom_live_classes',
+)
+
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APP + MAIN_APP + API_APPS + AUTH_APPS + TEKIROOM_APPS
 
 
 MIDDLEWARE = [
