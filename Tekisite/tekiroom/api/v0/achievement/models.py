@@ -32,7 +32,7 @@ class Reward(models.Model):
     )
     title = models.CharField(max_length=200)
     description = models.TextField()
-    reward_icon = models.ImageField(upload_to='reward_images', blank=True, null=True, default='reward_images/default.png')
+    reward_icon = models.ImageField(upload_to='tekiroom/reward_images', blank=True, null=True, default='reward_images/default.png')
 
     def __str__(self):
         return self.title

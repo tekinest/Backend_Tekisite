@@ -117,8 +117,8 @@ class School(models.Model):
     phone = models.CharField(max_length=100)
     email = models.EmailField(max_length=100)
     website = models.URLField(max_length=100)
-    logo = models.ImageField(upload_to="schools/logos/", blank=True)
-    cover = models.ImageField(upload_to="schools/covers/", blank=True)
+    logo = models.ImageField(upload_to="tekisite/schools/logos/", blank=True)
+    cover = models.ImageField(upload_to="tekisite/schools/covers/", blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     is_active = models.BooleanField(default=True)
@@ -156,7 +156,7 @@ class UserProfile(models.Model):
     )
     bio = models.TextField(max_length=500, blank=True)
     birth_date = models.DateField(null=True, blank=True)
-    profile_pic = models.ImageField(upload_to="profile_pics", blank=True, null=True)
+    profile_pic = models.ImageField(upload_to="tekisite/profile_pics", blank=True, null=True)
     address = AddressField(max_length=255, blank=False, null=False)
     slug = models.SlugField(max_length=255, blank=True)
     school = models.OneToOneField(
@@ -168,7 +168,7 @@ class UserProfile(models.Model):
     )
     school_info = models.CharField(max_length=255, blank=True, null=True)
     school_address = AddressField(max_length=255, blank=True, null=True)
-    school_logo = models.ImageField(upload_to="school_logo", blank=True, null=True)
+    school_logo = models.ImageField(upload_to="tekisite/school_logo", blank=True, null=True)
     parent = models.OneToOneField(
         User,
         on_delete=models.CASCADE,
