@@ -9,24 +9,11 @@ class UserSerializer(serializers.ModelSerializer):
         extra_kwargs = {'password': {'write_only': True},}
         permission_classes = (permissions.IsAuthenticated,)
     
-    def to_representation(self, instance):
-        # Check if the authenticated user is the owner of the profile.
-        if self.context['request'].user != instance:
-            raise serializers.ValidationError('You do not have permission to view this User.')
-        return super().to_representation(instance)
-
-
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserProfile
         fields = "__all__"
         permissions = (permissions.IsAuthenticated,)
-    
-    def to_representation(self, instance):
-        # Check if the authenticated user is the owner of the profile.
-        if self.context['request'].user != instance.user:
-            raise serializers.ValidationError('You do not have permission to view this profile.')
-        return super().to_representation(instance)
 
 class SchoolSerializer(serializers.ModelSerializer):
     class Meta:

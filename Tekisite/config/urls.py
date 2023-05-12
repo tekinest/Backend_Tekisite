@@ -27,6 +27,7 @@ urlpatterns = [
     path('tekiroom/courses/', include('tekiroom.api.v0.courses.urls')),
     path('tekiroom/homeworks/', include('tekiroom.api.v0.homework.urls')),
     path('tekiroom/live/', include('tekiroom.api.v0.tekiroom_live_classes.urls')),
-    path("", include("accounts.urls")),
+    path("account/", include("accounts.urls")),
     re_path(r'^auth/', include('drf_social_oauth2.urls', namespace='drf')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
