@@ -21,5 +21,5 @@ def main():
 
 if __name__ == "__main__":
     if os.path.exists(".env"):
-        dotenv.load_dotenv('.env')
+        dotenv.read_dotenv('.env')
     main()

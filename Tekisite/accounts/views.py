@@ -1,21 +1,15 @@
 # Create your views here.
-from rest_framework import viewsets, permissions, status, generics, mixins
-from django.shortcuts import get_object_or_404
-from rest_framework.views import APIView
-from rest_framework.response import Response
-
-
 from django.http import Http404
+from django.shortcuts import get_object_or_404
+from rest_framework import generics, mixins, permissions, status, viewsets
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
 from .models import User, UserProfile
-from .serializers import (
-    UserSerializer,
-    UserProfileSerializer,
-    NormalUserRegistrationSerializer,
-    SuperUserRegistrationSerializer
-)
 from .permissions import IsOwnerOrReadOnly
-
-
+from .serializers import (NormalUserRegistrationSerializer,
+                          SuperUserRegistrationSerializer,
+                          UserProfileSerializer, UserSerializer)
 
 
 class UserViewSet(viewsets.ViewSet):
@@ -94,7 +88,6 @@ class UserProfileViewSet(viewsets.ViewSet):
         profile = queryset.first()
         serializer = UserProfileSerializer(profile)
         return Response(serializer.data)
-
 
 
 class NormalUserRegistrationAPIView(generics.CreateAPIView, mixins.CreateModelMixin):

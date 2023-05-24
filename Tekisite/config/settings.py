@@ -14,6 +14,7 @@ ALLOWED_HOSTS = os.getenv(
 ).split(",")
 
 CORS_ORIGIN_WHITELIST = [
+    "http://localhost:5174",
     "http://localhost:5173",
 ]
 
