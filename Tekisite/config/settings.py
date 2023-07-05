@@ -12,7 +12,7 @@ DEVELOPMENT_MODE = os.getenv("DEVELOPMENT_MODE", "False") == "True"
 ALLOWED_HOSTS = os.getenv(
     "DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost,localhost:5173"
 ).split(",")
-
+# tesing resuming from here
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:5174",
     "http://localhost:5173",
